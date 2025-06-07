@@ -1,0 +1,20 @@
+architecture-beta
+    junction InternetJunctionT
+    junction InternetJunctionB
+
+    service Internet(internet)[Internet]
+    service Data(database)
+    service Main(server)[Main]
+    service Worker_N(server)[Worker_N]
+    service WebHooks_N(server)[WebHooks_N]
+    service API_N(server)[API_N]
+
+    Main:B --> T:Data
+    WebHooks_N:R --> L:Data
+    Worker_N:L --> R:Data
+    API_N:T --> B:Data
+    Internet:R --> L:WebHooks_N
+    Internet:T -- B:InternetJunctionT
+    InternetJunctionT:R --> L:Main
+    Internet:B -- T:InternetJunctionB
+    InternetJunctionB:R --> L:API_N
