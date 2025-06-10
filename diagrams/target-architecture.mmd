@@ -1,0 +1,59 @@
+architecture-beta
+    service Internet(internet)[Internet]
+    junction InternetJunctionR
+    junction InternetJunctionRB
+    junction InternetJunctionRBB
+    junction InternetJunctionRBBB
+
+    Internet:R -- L:InternetJunctionR
+    InternetJunctionR:B -- T:InternetJunctionRB
+    InternetJunctionRB:B -- T:InternetJunctionRBB
+    InternetJunctionRBB:B -- T:InternetJunctionRBBB
+
+    group DocumentService[DocumentService]
+    service DocumentServer(server)[Server] in DocumentService
+    service DocumentElasticsearch(database)[Elasticsearch] in DocumentService
+    service DocumentMySQL(database)[MySQL] in DocumentService
+    junction DocumentJunction
+
+    DocumentServer:R --> L:DocumentMySQL
+    DocumentServer:T --> B:DocumentElasticsearch
+    DocumentJunction:R --> L:DocumentServer
+
+    group DocumentEnrichmentService[DocumentEnrichmentService]
+    service DocumentEnrichmentServer(server)[Server] in DocumentEnrichmentService
+
+    DocumentServer:B --> T:DocumentEnrichmentServer
+
+    group KioskService[KioskService]
+    service KioskServer(server)[Server] in KioskService
+    service KioskMySQL(database)[MySQL] in KioskService
+    junction KioskJunctionR
+
+    KioskServer:R --  T:DocumentJunction
+    KioskServer:T --> B:KioskMySQL
+    InternetJunctionR:R --> L:KioskServer
+
+    group EPaperService[EPaperService]
+    service EPaperServer(server)[Server] in EPaperService
+    junction EPaperJunctionR
+    junction EPaperJunctionRT
+
+    EPaperServer:R -- L:EPaperJunctionR
+    EPaperJunctionR:T -- B:EPaperJunctionRT
+    EPaperJunctionRT:T -- B:DocumentJunction
+    InternetJunctionRBBB:R --> L:EPaperServer
+
+    group StatusService[StatusService]
+    service StatusServer(server)[Server] in StatusService
+
+    InternetJunctionR:T --> B:StatusServer
+
+    group AdministrationService[AdministrationService]
+    service AdministrationServer(server)[Server] in AdministrationService
+    service AdministrationMySQL(database)[MySQL] in AdministrationService
+
+    AdministrationServer:B --> T:AdministrationMySQL
+    AdministrationServer:L <-- R:InternetJunctionRB
+    AdministrationServer:T --> B:KioskServer
+    AdministrationServer:R -- L:DocumentJunction

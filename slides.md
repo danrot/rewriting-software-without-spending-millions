@@ -20,6 +20,27 @@
 - Some deployments are done manually using `git`
 - Code would be written differently today
 
+# Target Architecture
+
+## Microservices
+
+- High cohesion & low coupling
+- Each microservice has its own database
+
+## Extract Product Lines
+
+- Products lines are rather static
+- Changing scope of microservices is expensive
+- Identify shared functionality
+
+##
+
+![](diagrams/target-architecture.mmd.svg)
+
+##
+
+> We won't get approval from management to spend millions on a rewrite
+
 ## Thank you!
 
 danielrotter.at  
