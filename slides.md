@@ -41,6 +41,22 @@
 
 > We won't get approval from management to spend millions on a rewrite
 
+## Feature-Driven Refactoring
+
+Try to build new features or complex bug fixes in the target architecture
+
+## Case Study
+
+Moving indexing of documents away from web server
+
+## Current implementation
+
+- Legacy system writes index jobs into a database table
+- Cronjob periodically calls index endpoint in legacy system
+- Index endpoint reads information from index job table
+- Index endpoint transforms documents to JSON
+- Index endpoint inserts JSON into OpenSearch cluster in bulk
+
 ## Thank you!
 
 danielrotter.at  
