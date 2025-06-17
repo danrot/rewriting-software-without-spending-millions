@@ -57,6 +57,25 @@ Moving indexing of documents away from web server
 - Index endpoint transforms documents to JSON
 - Index endpoint inserts JSON into OpenSearch cluster in bulk
 
+## Goals
+
+- Use the modern Symfony framework
+- Introduce proper classes instead of arrays
+- Avoid duplicated queries within an among repositories
+- Use deptrac to define architectural rules
+- Statically analyse the code
+- Automatically format code
+- Have a 100% test coverage
+- No big bang rewrite
+
+## Legacy Seam
+
+A place where you can alter behavior without editing in that place
+
+##
+
+![](diagrams/legacy-seam.mmd.svg)
+
 ## Thank you!
 
 danielrotter.at  

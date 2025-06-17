@@ -1,0 +1,7 @@
+architecture-beta
+    service legacy(server)[Legacy]
+    service documentService(server)[DocumentService]
+    service database(database)[Database]
+
+    legacy:R --> L:database
+    database:R <-- L:documentService
