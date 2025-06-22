@@ -1,0 +1,34 @@
+classDiagram
+direction LR
+	namespace App {
+        class IndexDocumentsTask
+        class DocumentService
+        class DocumentIndexJobRepositoryInterface
+        class DocumentIndexer
+        class DocumentRepositoryInterface
+        class DocumentStatisticRepositoryInterface
+        class DocumentTextRepositoryInterface
+        class UserRepositoryInterface
+        class SearchIndexGatewayInterface
+	}
+	namespace Psr {
+        class ClockInterface
+        class LoggerInterface
+	}
+	namespace Symfony {
+        class NormalizerInterface
+	}
+
+    IndexDocumentsTask --> DocumentService
+    IndexDocumentsTask --> ClockInterface
+    DocumentService --> DocumentIndexJobRepositoryInterface
+    DocumentService --> DocumentIndexer
+    DocumentService --> LoggerInterface
+    DocumentIndexer --> DocumentRepositoryInterface
+    DocumentIndexer --> DocumentStatisticRepositoryInterface
+    DocumentIndexer --> DocumentTextRepositoryInterface
+    DocumentIndexer --> UserRepositoryInterface
+    DocumentIndexer --> SearchIndexGatewayInterface
+    DocumentIndexer --> NormalizerInterface
+    DocumentIndexer --> LoggerInterface
+

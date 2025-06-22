@@ -61,12 +61,13 @@ Moving indexing of documents away from web server
 
 - Use the modern Symfony framework
 - Introduce proper classes instead of arrays
-- Avoid duplicated queries within an among repositories
+- Avoid duplicated queries among repositories
 - Use deptrac to define architectural rules
 - Statically analyse the code
 - Automatically format code
 - Have a 100% test coverage
 - No big bang rewrite
+- No data migration
 
 ## Legacy Seam
 
@@ -75,6 +76,38 @@ A place where you can alter behavior without editing in that place
 ##
 
 ![](diagrams/legacy-seam.mmd.svg)
+
+## Transitional Architecture
+
+Software elements easing the displacement of a legacy system being removed when the displacement is complete
+
+##
+
+![](diagrams/class-overview.mmd.svg)
+
+##
+
+![](diagrams/class-repositories.mmd.svg)
+
+## Achievements
+
+- Used a modern framework
+- Introduced a proper domain model
+- Used old database to avoid data migration
+- Queries are implemented once in a repository class
+- Added automatic checks of architectural constraints
+- Added static analysis of code
+- Added automatic code formatting
+- 100% test coverage
+- No big bang rewrite
+- Deployment using Docker containers
+- Complete local development environment working offline
+
+## Outlook
+
+- Try finding more opportunities to develop functionality in the target architecture
+- Define new database schema(s)
+- Migrate data to new databae schema(s)
 
 ## Thank you!
 

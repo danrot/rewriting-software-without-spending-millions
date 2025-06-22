@@ -1,0 +1,27 @@
+classDiagram
+direction LR
+	namespace App {
+        class DocumentRepositoryInterface
+        class LegacyDocumentRepository
+        class MemoryDocumentRepository
+        class DoctrineDocumentRepository
+        class AbstractDocumentRepositoryTest
+        class LegacyDocumentRepositoryTest
+        class MemoryDocumentRepositoryTest
+        class DoctrineDocumentRepositoryTest
+	}
+
+	namespace Doctrine {
+        class Connection
+	}
+
+    DocumentRepositoryInterface <|-- LegacyDocumentRepository
+    DocumentRepositoryInterface <|-- MemoryDocumentRepository
+    DocumentRepositoryInterface <|-- DoctrineDocumentRepository
+    AbstractDocumentRepositoryTest <|-- LegacyDocumentRepositoryTest
+    AbstractDocumentRepositoryTest <|-- MemoryDocumentRepositoryTest
+    AbstractDocumentRepositoryTest <|-- DoctrineDocumentRepositoryTest
+    LegacyDocumentRepository --> Connection
+
+	style DoctrineDocumentRepository stroke:,stroke-dasharray: 5 5
+	style DoctrineDocumentRepositoryTest stroke:,stroke-dasharray: 5 5
