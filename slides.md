@@ -67,13 +67,29 @@ Moving indexing of documents away from web server
 - Automatically format code
 - Have a 100% test coverage
 - No big bang rewrite
-- No data migration
+- No data migration (for now)
 
 ## Legacy Seam
 
 A place where you can alter behavior without editing in that place
 
-##
+## Legacy Seam
+
+```php
+<?php
+
+class Foo
+{
+    public function __construct(private readonly BarInterface $bar) {}
+
+    public function doSomething()
+    {
+        $this->bar->baz();
+    }
+}
+```
+
+## Legacy Seam
 
 ![](diagrams/legacy-seam.mmd.svg)
 
@@ -106,8 +122,8 @@ Software elements easing the displacement of a legacy system being removed when 
 ## Outlook
 
 - Try finding more opportunities to develop functionality in the target architecture
-- Define new database schema(s)
-- Migrate data to new databae schema(s)
+- Define new database schemas
+- Migrate data to new databae schemas
 
 ## Thank you!
 
