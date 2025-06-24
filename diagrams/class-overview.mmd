@@ -1,6 +1,7 @@
 classDiagram
 direction LR
 	namespace App {
+        class IndexDocumentsCommand
         class IndexDocumentsTask
         class DocumentService
         class DocumentIndexJobRepositoryInterface
@@ -19,6 +20,7 @@ direction LR
         class NormalizerInterface
 	}
 
+    IndexDocumentsCommand --> DocumentService
     IndexDocumentsTask --> DocumentService
     IndexDocumentsTask --> ClockInterface
     DocumentService --> DocumentIndexJobRepositoryInterface

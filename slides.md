@@ -3,6 +3,18 @@
 
 # Disclaimer
 
+##
+
+![](images/software_why.jpg)
+
+##
+
+![](images/unmaintainable_code.png)
+
+##
+
+![](images/new_hires.jpg)
+
 # Initial Situation
 
 ##
@@ -123,7 +135,7 @@ Software elements easing the displacement of a legacy system being removed when 
 
 - Try finding more opportunities to develop functionality in the target architecture
 - Define new database schemas
-- Migrate data to new databae schemas
+- Migrate data to new database schemas
 
 ## Thank you!
 
